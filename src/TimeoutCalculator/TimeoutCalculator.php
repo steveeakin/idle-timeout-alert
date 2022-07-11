@@ -24,12 +24,12 @@ class TimeoutCalculator
         }
 
         try {
-            $sessionId = Crypt::decryptString($cookie));
+            $sessionId = Crypt::decryptString($cookie);
         } catch (\Throwable) {
             $cookie = explode('|', $cookie);
             $cookie = array_pop($cookie);
 
-            $sessionId = Crypt::decryptString($cookie));
+            $sessionId = Crypt::decryptString($cookie);
         }
 
         switch (config('session.driver')) {
