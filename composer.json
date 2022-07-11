@@ -1,5 +1,5 @@
 {
-    "name": "vectorwyse/idle-timeout-alert",
+    "name": "steveeakin/idle-timeout-alert",
     "description": "A Laravel package for alerting idle sessions about to expire.",
     "type": "library",
     "license": "MIT",
