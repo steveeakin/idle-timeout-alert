@@ -8,7 +8,7 @@ class DatabaseSessionChecker extends SessionChecker
 {
     public function getLastModified()
     {
-        $session = DB::table('sessions')->where('id', $this->sessionId)->first();
+        $session = DB::table(config('session.table'))->where('id', $this->sessionId)->first();
         if (!$session) {
             throw new TimeoutCalculatorException('Session not found');
         }
