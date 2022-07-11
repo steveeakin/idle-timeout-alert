@@ -23,15 +23,15 @@ class TimeoutCalculator
             throw new TimeoutCalculatorException('Not logged in');
         }
 
-        if (strstr($cookie, '|')) {
-            $cookie = explode('|', $cookie);
-            $cookie = array_pop($cookie);
-        }
-
         try {
             $sessionId = Crypt::decryptString($cookie);
         } catch (\Throwable) {
             throw new TimeoutCalculatorException('Invalid session');
+        }
+
+        if (strstr($sessionId, '|')) {
+            $sessionId = explode('|', $sessionId);
+            $sessionId = array_pop($sessionId);
         }
 
         switch (config('session.driver')) {
